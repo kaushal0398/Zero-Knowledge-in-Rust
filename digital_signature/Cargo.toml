@@ -1,0 +1,12 @@
+[package]
+name = "digital_signature"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rsa = "0.9.0"
+rand = "0.8.5"
+sha2 = "0.10.5"
+
