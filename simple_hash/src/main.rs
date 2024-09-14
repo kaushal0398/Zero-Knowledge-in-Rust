@@ -8,7 +8,7 @@ fn hash_message(message: &str) -> String {
 }
 
 fn main() {
-    let message = "Hello, Rust Zero Knowledge!";
+    let message = "Zero Knowledge!";
     let hash = hash_message(message);
     println!("Message: {}", message);
     println!("SHA-256 Hash: {}", hash);
