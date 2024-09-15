@@ -46,8 +46,8 @@ impl Circuit {
     
     fn get_value(&self, var: Variable) -> i64 {
         match var {
-            Gate::Add(var1, var2) => self.get_value(*var1) + self.get_value(*var2),
-                Gate::Mul(var1, var2) => self.get_value(*var1) * self.get_value(*var2),
+            Variable::Input(index) => self.inputs[index],
+            Variable::Intermediate(index) => self.intermediates[index],
         }
     }
 
