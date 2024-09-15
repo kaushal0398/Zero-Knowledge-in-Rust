@@ -1,6 +1,5 @@
 use rsa::{RsaPrivateKey, RsaPublicKey};
 use rsa::pkcs1v15::SigningKey;
-use rsa::pkcs1v15::VerificationKey;
 use rsa::signature::{Signer, Verifier};
 use sha2::{Sha256, Digest};
 use rand::rngs::OsRng;
