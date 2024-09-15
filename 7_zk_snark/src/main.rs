@@ -38,7 +38,7 @@ impl Circuit<Fr> for SimpleCircuit {
 }
 
 fn main() {
-    // Generate random parameters for the circuit (trusted setup).
+    
     let rng = &mut thread_rng();
     let params = {
         let c = SimpleCircuit {
@@ -48,13 +48,11 @@ fn main() {
         };
         generate_random_parameters::<Bn256, _, _>(c, rng).expect("Failed to generate parameters")
     };
-
-    // Prepare the verifying key.
     let pvk = prepare_verifying_key(&params.vk);
-
-    // Define the inputs for the circuit (we are proving that (2 + 3) * 4 = 20).
+    
     let circuit = SimpleCircuit {
         a: Some(Fr::from_str("2").unwrap()),
         b: Some(Fr::from_str("3").unwrap()),
         c: Some(Fr::from_str("4").unwrap()),
     };
+
