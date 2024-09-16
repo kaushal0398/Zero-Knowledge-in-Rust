@@ -26,7 +26,25 @@ impl Air for FibonacciAir {
         winterfell::air::Context::new(self.sequence_length, ProofOptions::default())
     }
 }
-
 struct FibonacciProver {
     options: ProofOptions,
 }
+
+impl Prover for FibonacciProver {
+    type BaseField = BaseElement;
+    type Air = FibonacciAir;
+    type Trace = FibonacciTrace;
+
+    fn get_pub_inputs(&self, trace: &Self::Trace) -> Vec<Self::BaseField> {
+        trace.get_pub_inputs()
+    }
+
+    fn options(&self) -> &ProofOptions {
+        &self.options
+    }
+
+    fn trace(&self) -> Self::Trace {
+        FibonacciTrace::new(10)  
+    }
+}
+
