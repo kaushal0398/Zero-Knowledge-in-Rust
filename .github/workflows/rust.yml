@@ -34,9 +34,8 @@ jobs:
 
       - name: Build project
         run: cargo build --verbose
-        working-directory: ./Zero-Knowledge-in-Rust
+        working-directory: Zero-Knowledge-in-Rust
 
       - name: Run tests
         run: cargo test
-        working-directory: ./Zero-Knowledge-in-Rust
-
+        working-directory: Zero-Knowledge-in-Rust
