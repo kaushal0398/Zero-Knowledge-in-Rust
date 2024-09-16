@@ -73,3 +73,16 @@ impl Circuit<Fp> for SimpleCircuit {
     }
 }
 
+fn main() {
+    let circuit = SimpleCircuit {
+        a: Value::known(Fp::from(2)),
+        b: Value::known(Fp::from(3)),
+        c: Value::known(Fp::from(4)),
+    };
+
+    let prover = MockProver::run(5, &circuit, vec![]).unwrap();
+
+    assert_eq!(prover.verify(), Ok(()));
+    println!("Initial circuit verification passed.");
+
+}
