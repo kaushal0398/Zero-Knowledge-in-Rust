@@ -38,4 +38,4 @@ jobs:
 
       - name: Run tests
         run: cargo test
-        working-directory: 
+        working-directory: Zero-Knowledge-in-Rust
