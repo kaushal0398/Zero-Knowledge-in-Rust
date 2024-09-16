@@ -1,0 +1,12 @@
+C:\Zk in rust\Zero-Knowledge-in-Rust\rsa_cryptography\target\debug\deps\spki-6f484f33177a4283.rmeta: C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\lib.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\algorithm.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\error.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\spki.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\traits.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\../README.md
+
+C:\Zk in rust\Zero-Knowledge-in-Rust\rsa_cryptography\target\debug\deps\libspki-6f484f33177a4283.rlib: C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\lib.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\algorithm.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\error.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\spki.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\traits.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\../README.md
+
+C:\Zk in rust\Zero-Knowledge-in-Rust\rsa_cryptography\target\debug\deps\spki-6f484f33177a4283.d: C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\lib.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\algorithm.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\error.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\spki.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\traits.rs C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\../README.md
+
+C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\lib.rs:
+C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\algorithm.rs:
+C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\error.rs:
+C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\spki.rs:
+C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\traits.rs:
+C:\Users\kaush\.cargo\registry\src\github.com-1ecc6299db9ec823\spki-0.7.3\src\../README.md:
