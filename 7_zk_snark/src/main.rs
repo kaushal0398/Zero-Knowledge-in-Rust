@@ -56,3 +56,14 @@ fn main() {
         c: Some(Fr::from_str("4").unwrap()),
     };
 
+    let proof = create_random_proof(circuit, &params, rng).expect("Failed to create proof");
+
+    
+    let public_input = Fr::from_str("20").unwrap();
+
+    
+    let is_valid = verify_proof(&pvk, &proof, &[public_input]).expect("Failed to verify proof");
+
+    
+    println!("Is the proof valid? {}", is_valid);
+}
