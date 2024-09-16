@@ -1,26 +1,42 @@
-name: Rust
+name: Rust Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
-env:
-  CARGO_TERM_COLOR: always
+    branches:
+      - main
 
 jobs:
   build:
+    name: Build Rust project
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Rust
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Ensures the entire repository is checked out
+
+      - name: Set up Rust environment
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-          default: true
+          profile: minimal
           override: true
 
-      - name: Build
+      - name: Print working directory
+        run: pwd
+
+      - name: List directory contents
+        run: ls -la
+
+      - name: Build project
         run: cargo build --verbose
         working-directory: ./Zero-Knowledge-in-Rust
+
+      - name: Run tests
+        run: cargo test
+        working-directory: ./Zero-Knowledge-in-Rust
+
