@@ -36,3 +36,17 @@ impl Circuit<Fr> for RollupCircuit {
 }
 
 
+fn create_rollup_proof(transactions: Vec<Transaction>) -> bool {
+    let total_input: u32 = transactions.iter().map(|tx| tx.sender).sum();
+    let total_output: u32 = transactions.iter().map(|tx| tx.receiver).sum();
+
+    let total_input_fr = Fr::from_str(&total_input.to_string()).unwrap();
+    let total_output_fr = Fr::from_str(&total_output.to_string()).unwrap();
+
+    let circuit = RollupCircuit {
+        transactions,
+        total_input: Some(total_input_fr),
+        total_output: Some(total_output_fr),
+    };
+
+    
