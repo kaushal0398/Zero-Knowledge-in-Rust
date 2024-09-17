@@ -49,4 +49,25 @@ fn create_rollup_proof(transactions: Vec<Transaction>) -> bool {
         total_output: Some(total_output_fr),
     };
 
-    
+    let rng = &mut thread_rng();
+    let params = generate_random_parameters::<Bn256, _, _>(circuit.clone(), rng).expect("Failed to generate parameters");
+
+    let pvk = prepare_verifying_key(&params.vk);
+
+    let proof = create_random_proof(circuit, &params, rng).expect("Failed to create proof");
+
+    let public_input = vec![total_input_fr, total_output_fr];
+    verify_proof(&pvk, &proof, &public_input).is_ok()
+}
+
+fn main() {
+    let transactions = vec![
+        Transaction { sender: 10, receiver: 5, amount: 5 },
+        Transaction { sender: 8, receiver: 4, amount: 4 },
+        Transaction { sender: 12, receiver: 6, amount: 6 },
+    ];
+
+    let is_valid = create_rollup_proof(transactions);
+
+    println!("zk-Rollup proof valid: {}", is_valid);
+}
