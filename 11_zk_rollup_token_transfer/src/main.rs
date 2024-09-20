@@ -20,7 +20,11 @@ impl Circuit<Fr> for RollupCircuit {
     fn synthesize<CS: ConstraintSystem<Fr>>(self, cs: &mut CS) -> Result<(), SynthesisError> {
         let num_users = self.user_balances.len();
 
-        let mut allocated_balances = Vec::new();
+        if self.transactions.iter().any(|tx| tx.sender_id as usize >= num_users || tx.receiver_id as usize >= num_users) {
+            return Err(SynthesisError::Unsatisfiable);
+        }
+
+        let mut allocated_balances = Vec::with_capacity(num_users);
         for (i, balance) in self.user_balances.iter().enumerate() {
             let balance_alloc = AllocatedNum::alloc(cs.namespace(|| format!("user balance {}", i)), || {
                 Ok(Fr::from_str(&balance.to_string()).unwrap())
@@ -40,18 +44,22 @@ impl Circuit<Fr> for RollupCircuit {
                 || format!("balance check for sender {}", i),
                 |lc| lc + sender_balance.get_variable(),
                 |lc| lc + CS::one(),
-                |lc| lc + amount.get_variable()
+                |lc| lc + amount.get_variable(),
             );
 
             let new_sender_balance = AllocatedNum::alloc(cs.namespace(|| format!("new sender balance {}", i)), || {
                 let mut sb = Fr::from_str(&self.user_balances[tx.sender_id as usize].to_string()).unwrap();
                 sb.sub_assign(&Fr::from_str(&tx.amount.to_string()).unwrap());
+                if sb.is_zero() {
+                    return Err(SynthesisError::Unsatisfiable);
+                }
                 Ok(sb)
             })?;
+
             cs.enforce(
-                || format!("new balance for sender {}", i),
+                || format!("update sender balance {}", i),
                 |lc| lc + sender_balance.get_variable(),
-                |lc| lc + amount.get_variable(),
+                |lc| lc - amount.get_variable(),
                 |lc| lc + new_sender_balance.get_variable(),
             );
 
@@ -60,8 +68,9 @@ impl Circuit<Fr> for RollupCircuit {
                 rb.add_assign(&Fr::from_str(&tx.amount.to_string()).unwrap());
                 Ok(rb)
             })?;
+
             cs.enforce(
-                || format!("new balance for receiver {}", i),
+                || format!("update receiver balance {}", i),
                 |lc| lc + receiver_balance.get_variable(),
                 |lc| lc + amount.get_variable(),
                 |lc| lc + new_receiver_balance.get_variable(),
@@ -116,3 +125,4 @@ fn main() {
 
     println!("zk-Rollup proof valid: {}", is_valid);
 }
+
