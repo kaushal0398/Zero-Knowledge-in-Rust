@@ -79,3 +79,34 @@ impl Circuit<Fr> for PrivateTransferCircuit {
     }
 }
 
+/// Function to generate and verify a private transfer proof.
+fn generate_private_transfer_proof() -> bool {
+    // Set up the transfer.
+    let transfer = PrivateTransfer::new(100, 50, 25);
+
+    // Create the ZK-SNARK circuit.
+    let circuit = PrivateTransferCircuit {
+        sender_balance_commitment: transfer.sender_balance_commitment,
+        receiver_balance_commitment: transfer.receiver_balance_commitment,
+        transfer_amount_commitment: transfer.transfer_amount_commitment,
+        transfer_amount: Some(Fr::from_str(&transfer.transfer_amount.to_string()).unwrap()),
+        sender_blinding: Some(Fr::from_str(&transfer.sender_blinding.to_string()).unwrap()),
+        receiver_blinding: Some(Fr::from_str(&transfer.receiver_blinding.to_string()).unwrap()),
+        transfer_blinding: Some(Fr::from_str(&transfer.transfer_blinding.to_string()).unwrap()),
+    };
+
+    let rng = &mut thread_rng();
+    let params = generate_random_parameters::<Bn256, _, _>(circuit.clone(), rng).expect("Failed to generate parameters");
+
+    let pvk = prepare_verifying_key(&params.vk);
+
+    let proof = create_random_proof(circuit, &params, rng).expect("Failed to create proof");
+
+    let public_input = vec![];  .
+    verify_proof(&pvk, &proof, &public_input).is_ok()
+}
+
+fn main() {
+    let is_valid = generate_private_transfer_proof();
+    println!("Private transfer proof valid: {}", is_valid);
+}
