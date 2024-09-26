@@ -43,5 +43,4 @@ fn main() {
     
     let is_valid = schnorr_verify(public_key, commitment, challenge, response);
     
-    println!("Is the proof valid? {}", is_valid);
 }
