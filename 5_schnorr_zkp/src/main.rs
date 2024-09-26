@@ -34,6 +34,7 @@ fn main() {
     OsRng.fill_bytes(&mut secret_bytes);
     let secret = Scalar::from_bytes_mod_order(secret_bytes);
     
+    let public_key = secret * RISTRETTO_BASEPOINT_POINT;
     
     println!("Prover's Secret (hidden): {:?}", secret);
     println!("Prover's Public Key: {:?}", public_key);
