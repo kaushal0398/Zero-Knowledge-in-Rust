@@ -30,11 +30,7 @@ fn schnorr_verify(public_key: RistrettoPoint, commitment: RistrettoPoint, challe
 }
 
 fn main() {
-    let mut secret_bytes = [0u8; 32];
-    OsRng.fill_bytes(&mut secret_bytes);
-    let secret = Scalar::from_bytes_mod_order(secret_bytes);
     
-    let public_key = secret * RISTRETTO_BASEPOINT_POINT;
     
     println!("Prover's Secret (hidden): {:?}", secret);
     println!("Prover's Public Key: {:?}", public_key);
