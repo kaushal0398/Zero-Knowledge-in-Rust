@@ -31,6 +31,10 @@ fn schnorr_verify(public_key: RistrettoPoint, commitment: RistrettoPoint, challe
 
 fn main() {
     
+    
+    println!("Prover's Secret (hidden): {:?}", secret);
+    println!("Prover's Public Key: {:?}", public_key);
+    
     let (commitment, challenge, response) = schnorr_prove(secret);
     
     println!("Commitment: {:?}", commitment);
