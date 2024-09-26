@@ -7,6 +7,7 @@ use rand::RngCore;  // Import RngCore trait for generating random bytes
 fn schnorr_prove(secret: Scalar) -> (RistrettoPoint, Scalar, Scalar) {
     let mut random_bytes = [0u8; 32];
     OsRng.fill_bytes(&mut random_bytes);
+    let random_nonce = Scalar::from_bytes_mod_order(random_bytes);
     
     let commitment = random_nonce * RISTRETTO_BASEPOINT_POINT;
     
