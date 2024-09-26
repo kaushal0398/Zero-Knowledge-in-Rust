@@ -38,8 +38,6 @@ fn main() {
     let (commitment, challenge, response) = schnorr_prove(secret);
     
     println!("Commitment: {:?}", commitment);
-    println!("Challenge: {:?}", challenge);
-    println!("Response: {:?}", response);
     
     let is_valid = schnorr_verify(public_key, commitment, challenge, response);
     
