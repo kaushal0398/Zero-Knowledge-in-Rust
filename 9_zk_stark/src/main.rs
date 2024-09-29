@@ -1,7 +1,6 @@
 use winterfell::{
     FieldExtension, ProofOptions, Prover, StarkProof, Trace, TraceTable, VerifierError,
 };
-use winterfell::prover::DefaultProver;
 use winterfell::verifier::verify;
 use winterfell::Air;
 use winterfell::air::AirConfig;
