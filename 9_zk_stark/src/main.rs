@@ -1,6 +1,7 @@
 use winterfell::{
     FieldExtension, ProofOptions, Prover, StarkProof, Trace, TraceTable, VerifierError,
 };
+use winterfell::math::{fields::f128::BaseElement};
 use winterfell::prover::DefaultProver;
 use winterfell::verifier::verify;
 use winterfell::Air;
