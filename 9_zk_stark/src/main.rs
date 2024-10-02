@@ -4,8 +4,7 @@ use winterfell::{
 use winterfell::math::{fields::f128::BaseElement};
 use winterfell::prover::DefaultProver;
 use winterfell::verifier::verify;
-use winterfell::Air;
-use winterfell::air::AirConfig;
+
 
 struct FibonacciAir {
     sequence_length: usize,
