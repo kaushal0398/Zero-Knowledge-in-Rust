@@ -6,7 +6,8 @@ enum Variable {
 
 #[derive(Debug, Clone)]
 enum Gate {
-    Add(Variable, Variable),           
+    Add(Variable, Variable),      
+    Mul(Variable, Variable),      
 }
 
 
