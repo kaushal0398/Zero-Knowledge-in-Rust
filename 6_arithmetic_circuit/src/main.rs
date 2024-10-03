@@ -22,6 +22,7 @@ impl Circuit {
     fn new(inputs: Vec<i64>) -> Self {
         Circuit {
             inputs,
+            gates: Vec::new(),
             intermediates: Vec::new(),
         }
     }
