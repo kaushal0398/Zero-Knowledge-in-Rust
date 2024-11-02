@@ -1,6 +1,6 @@
 use bellman::{Circuit, ConstraintSystem, SynthesisError};
 use bellman::gadgets::num::AllocatedNum;
-use pairing::bn256::Fr;
+
 
 /// A commitment circuit that performs a Pedersen commitment within a zero-knowledge proof system.
 pub struct CommitmentCircuit {
