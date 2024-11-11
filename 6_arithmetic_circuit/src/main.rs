@@ -60,7 +60,7 @@ impl Circuit {
 fn main() {
     let inputs = vec![3, 5];
     let mut circuit = Circuit::new(inputs);
-    circuit.add_gate(Gate::Add(Variable::Input(0)));
+    circuit.add_gate(Gate::Add(Variable::Input(0), Variable::Input(1)));
     circuit.add_gate(Gate::Mul(Variable::Intermediate(0), Variable::Input(0)));
     circuit.evaluate();
     println!("Circuit output: {}", circuit.output()); 
