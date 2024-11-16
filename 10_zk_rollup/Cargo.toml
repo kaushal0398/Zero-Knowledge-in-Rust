@@ -8,4 +8,5 @@ edition = "2021"
 [dependencies]
 bellman = "0.14.0"
 pairing = "0.23"
+rand = "0.8.5"
 
