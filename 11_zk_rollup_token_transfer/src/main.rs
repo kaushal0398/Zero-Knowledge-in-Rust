@@ -1,6 +1,6 @@
 use bellman::{Circuit, ConstraintSystem, SynthesisError};
 use pairing::bn256::{Bn256, Fr};
-
+use bellman::groth16::{generate_random_parameters, 
 use rand::thread_rng;
 use bellman::gadgets::num::AllocatedNum;
 
