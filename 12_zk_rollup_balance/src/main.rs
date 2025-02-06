@@ -80,6 +80,7 @@ fn create_rollup_proof(transactions: Vec<Transaction>) -> bool {
 fn main() {
     let transactions = vec![
         Transaction { sender: 10, receiver: 5, amount: 5, sender_balance: 10 }, 
+        Transaction { sender: 8, receiver: 4, amount: 4, sender_balance: 8 }, 
           
     ];
 
