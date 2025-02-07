@@ -24,7 +24,7 @@ fn schnorr_prove(secret: Scalar) -> (RistrettoPoint, Scalar, Scalar) {
 fn schnorr_verify(public_key: RistrettoPoint, commitment: RistrettoPoint, challenge: Scalar, response: Scalar) -> bool {
     let lhs = response * RISTRETTO_BASEPOINT_POINT;
     
-    let rhs = commitment + challenge * public_key;
+    
     
     lhs == rhs
 }
