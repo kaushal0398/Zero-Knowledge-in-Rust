@@ -12,7 +12,8 @@ impl Circuit<Fr> for ArithmeticCircuit {
     fn synthesize<CS: ConstraintSystem<Fr>>(self, cs: &mut CS) -> Result<(), SynthesisError> {
         let a = AllocatedNum::alloc(cs.namespace(|| "a"), || self.a.ok_or(SynthesisError::AssignmentMissing))?;
         let b = AllocatedNum::alloc(cs.namespace(|| "b"), || self.b.ok_or(SynthesisError::AssignmentMissing))?;
-       
+        let c = AllocatedNum::alloc(cs.namespace(|| "c"), || self.c.ok_or(SynthesisError::AssignmentMissing))?;
+
        
         let sum = AllocatedNum::alloc(cs.namespace(|| "sum = a + b"), || {
             let mut tmp = self.a.unwrap();
