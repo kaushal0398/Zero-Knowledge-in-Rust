@@ -59,6 +59,7 @@ impl Circuit {
 
 fn main() {
     let inputs = vec![3, 5];
-   
+    let mut circuit = Circuit::new(inputs);
+    
     println!("Circuit output: {}", circuit.output()); 
 }
