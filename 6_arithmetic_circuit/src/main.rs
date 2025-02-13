@@ -58,6 +58,7 @@ impl Circuit {
 }
 
 fn main() {
-    
+    let inputs = vec![3, 5];
+   
     println!("Circuit output: {}", circuit.output()); 
 }
