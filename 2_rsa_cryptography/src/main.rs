@@ -8,7 +8,7 @@ fn generate_rsa_keypair() -> (RsaPrivateKey, RsaPublicKey) {
 }
 use rsa::{RsaPrivateKey, RsaPublicKey, PaddingScheme};
 use rand::rngs::OsRng;
-
+let public_key = RsaPublicKey::from(&private_key);
 fn generate_rsa_keypair() -> (RsaPrivateKey, RsaPublicKey) {
     let private_key = RsaPrivateKey::new(&mut OsRng, 2048).expect("Failed to generate a key");
     (private_key, public_key)
