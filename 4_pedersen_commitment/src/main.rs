@@ -1,6 +1,5 @@
 use curve25519_dalek::scalar::Scalar;
-use curve25519_dalek::ristretto::RistrettoPoint;
-use curve25519_dalek::constants::RISTRETTO_BASEPOINT_POINT;
+use  curve25519_dalek::constants::RISTRETTO_BASEPOINT_POINT;
 use rand::rngs::OsRng;
 use rand::RngCore;  // Importing RngCore trait for generating random bytes
 
