@@ -7,7 +7,9 @@ use winterfell::verifier::verify;
 use winterfell::Air;
 use winterfell::air::AirConfig;
 
-
+struct FibonacciAir {
+    sequence_length: usize,
+}
 
 impl AirConfig for FibonacciAir {
     type BaseField = BaseElement;
