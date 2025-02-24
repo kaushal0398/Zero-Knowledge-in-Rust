@@ -78,5 +78,16 @@ fn create_rollup_proof(transactions: Vec<Transaction>) -> bool {
     verify_proof(&pvk, &proof, &public_input).is_ok()
 }
 
+fn main() {
+    let transactions = vec![
+        Transaction { sender: 10, receiver: 5, amount: 5, sender_balance: 10 }, 
+        Transaction { sender: 8, receiver: 4, amount: 4, sender_balance: 8 }, 
+        Transaction { sender: 12, receiver: 6, amount: 7, sender_balance: 6 },
+    ];
+
+    let is_valid = create_rollup_proof(transactions);
+
+    println!("zk-Rollup proof valid: {}", is_valid);
+}
 
 
