@@ -1,4 +1,5 @@
 use bellman::{Circuit, ConstraintSystem, SynthesisError};
+use pairing::bn256::{Bn256, Fr};
 use bellman::groth16::
 {generate_random_parameters,
 create_random_proof, verify_proof, prepare_verifying_key}; 
