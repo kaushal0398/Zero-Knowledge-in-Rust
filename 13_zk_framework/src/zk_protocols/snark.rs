@@ -3,7 +3,8 @@ use pairing::bn256::{Bn256, Fr};
 use bellman::Circuit;
 use rand::thread_rng;
 
- Circuit<Fr>>(circuit: C) -> bool {
+pub fn create_snark_proof<C:
+Circuit<Fr>>(circuit: C) -> bool {
     
     let rng = &mut thread_rng();
     let params = generate_random_parameters::<Bn256, _, _>(circuit.clone(), rng).expect("Failed to generate parameters");
