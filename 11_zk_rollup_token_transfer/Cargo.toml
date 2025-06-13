@@ -1,5 +1,5 @@
 [package]
-
+name = "zk_rollup_token_transfer"
 version = "0.1.0"
 edition = "2021"
 
